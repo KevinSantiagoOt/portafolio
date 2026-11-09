@@ -27,13 +27,7 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
       </h1>
 
       <div className="pt-10 pb-[18vh] md:ml-[33%] md:pt-16 md:pb-[28vh]">
-        <div className="flex flex-col gap-6 md:gap-8">
-          {tl(site.bio, locale as Locale)
-            .split(/\n\s*\n/)
-            .map((paragraph, i) => (
-              <ScrollRevealText key={i} text={paragraph} />
-            ))}
-        </div>
+        <ScrollRevealText text={tl(site.bio, locale as Locale)} />
       </div>
 
       <Services title={t("servicesTitle")} services={site.services} />
