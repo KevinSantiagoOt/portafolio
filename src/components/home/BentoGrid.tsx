@@ -39,7 +39,7 @@ export function BentoGrid({ onContactClick }: { onContactClick: () => void }) {
               alt=""
               fill
               sizes="(min-width: 768px) 66vw, 100vw"
-              className="object-cover object-[50%_12%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               unoptimized={featured.image.endsWith(".svg")}
               priority
             />
