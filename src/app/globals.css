@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* dark: sigue a <html data-theme>, no a la preferencia del sistema */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 /* Tema oscuro (por defecto) */
 :root {
   --bg: #0a0a0a;

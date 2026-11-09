@@ -22,7 +22,9 @@
     "demo": "Live demo",
     "code": "Code",
     "stack": "Stack",
-    "close": "Close"
+    "close": "Close",
+    "moreTitle": "More projects on GitHub",
+    "moreText": "Repositories, practice projects and what I am building now."
   },
   "resume": {
     "title": "Resume",
@@ -33,7 +35,7 @@
   },
   "contact": {
     "title": "Let's talk",
-    "subtitle": "Tell me about your project or role. I reply within 24 hours.",
+    "subtitle": "Tell me about your project or role. I will get back to you as soon as possible.",
     "name": "Name",
     "email": "Email",
     "type": "Inquiry type",

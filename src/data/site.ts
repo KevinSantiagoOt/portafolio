@@ -1,50 +1,54 @@
 import type { Site } from "./types";
 
-// Contenido de ejemplo: reemplázalo con tus datos reales.
 export const site: Site = {
-  name: "Kevin",
-  role: { es: "Desarrollador Full Stack", en: "Full Stack Developer" },
-  city: "CDMX",
-  // Zona horaria IANA (ej. "America/Bogota", "America/Lima").
-  timeZone: "America/Mexico_City",
-  email: "hola@ejemplo.dev",
-  whatsapp: "5215512345678",
-  linkedin: "https://www.linkedin.com/in/tu-usuario",
-  github: "https://github.com/tu-usuario",
+  name: "Kevin Otálvaro",
+  role: { es: "Desarrollador de Software", en: "Software Developer" },
+  city: "Medellín",
+  timeZone: "America/Bogota",
+  email: "kevinotalvaro@outlook.es",
+  whatsapp: "573137226702",
+  linkedin: "https://www.linkedin.com/in/kevin-santiago-ot%C3%A1lvaro-8784b7328",
+  github: "https://github.com/KevinSantiagoOt",
   available: true,
+  // Pendiente: reemplazar por tu foto real (public/images/photo.jpg).
   photo: "/images/photo.svg",
+  // Iconos: Devicon (MIT). `mono`: logo oscuro que se invierte en tema oscuro.
   stack: [
-    { name: "React", icon: "/icons/react.svg" },
-    { name: "Next.js", icon: "/icons/nextjs.svg" },
+    { name: "Java", icon: "/icons/java.svg" },
+    { name: "C#", icon: "/icons/csharp.svg" },
     { name: "TypeScript", icon: "/icons/typescript.svg" },
-    { name: "Node.js", icon: "/icons/nodejs.svg" },
-    { name: "Tailwind CSS", icon: "/icons/tailwind.svg" },
+    { name: "React", icon: "/icons/react.svg" },
+    { name: "Tailwind CSS", icon: "/icons/tailwindcss.svg" },
+    { name: "Prisma", icon: "/icons/prisma.svg", mono: true },
+    { name: "MySQL", icon: "/icons/mysql.svg" },
     { name: "PostgreSQL", icon: "/icons/postgresql.svg" },
+    { name: "Git", icon: "/icons/git.svg" },
+    { name: "GitHub", icon: "/icons/github.svg", mono: true },
   ],
   bio: {
-    es: "Soy Kevin, un desarrollador que cree que el mejor software vive en la intersección entre la claridad y el oficio. Construyo productos web completos, del diseño de la interfaz a la base de datos, cuidando cada detalle: el rendimiento, la accesibilidad y esas pequeñas cosas que la mayoría no nota pero todos sienten. Me motiva resolver problemas reales, aprender sin parar y crear cosas que antes no existían.",
-    en: "I'm Kevin, a developer who believes the best software lives at the intersection of clarity and craft. I build complete web products, from interface design to the database, caring about every detail: performance, accessibility and the small things most people never notice but everyone feels. I'm driven by solving real problems, learning nonstop and making things that didn't exist before.",
+    es: "Soy Kevin Otálvaro, desarrollador de software en Medellín, Colombia. Me apasiona crear soluciones digitales completas: desde la lógica del backend y las bases de datos hasta interfaces intuitivas en el frontend. Desarrollo páginas web, aplicaciones móviles y de escritorio con Java, C#, TypeScript y React, buscando que cada producto sea claro, confiable y fácil de usar.",
+    en: "I'm Kevin Otálvaro, a software developer based in Medellín, Colombia. I'm passionate about building complete digital solutions: from backend logic and databases to intuitive frontend interfaces. I build websites, mobile and desktop applications with Java, C#, TypeScript and React, aiming for every product to be clear, reliable and easy to use.",
   },
   services: [
     {
-      title: { es: "Sitios y landing pages", en: "Websites & landing pages" },
+      title: { es: "Páginas web", en: "Websites" },
       description: {
-        es: "Sitios rápidos, cuidados y optimizados para SEO que convierten visitas en clientes.",
-        en: "Fast, polished, SEO-ready sites that turn visitors into customers.",
+        es: "Sitios rápidos, modernos y adaptados a móvil, desde landing pages hasta aplicaciones web completas.",
+        en: "Fast, modern, mobile-friendly sites, from landing pages to full web applications.",
       },
     },
     {
-      title: { es: "Aplicaciones web", en: "Web applications" },
+      title: { es: "Aplicaciones móviles", en: "Mobile apps" },
       description: {
-        es: "Paneles, SaaS y herramientas internas a medida con React, Next.js y Node.",
-        en: "Custom dashboards, SaaS and internal tools with React, Next.js and Node.",
+        es: "Apps para gestionar tu negocio desde el teléfono: clientes, pagos, inventario y más.",
+        en: "Apps to run your business from your phone: customers, payments, inventory and more.",
       },
     },
     {
-      title: { es: "APIs e integraciones", en: "APIs & integrations" },
+      title: { es: "Aplicaciones de escritorio", en: "Desktop apps" },
       description: {
-        es: "Backends, bases de datos e integraciones con pagos, correo y servicios externos.",
-        en: "Backends, databases and integrations with payments, email and third-party services.",
+        es: "Software a medida para Windows con Java o C#, conectado a bases de datos MySQL o PostgreSQL.",
+        en: "Custom Windows software with Java or C#, connected to MySQL or PostgreSQL databases.",
       },
     },
   ],

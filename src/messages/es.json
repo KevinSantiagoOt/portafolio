@@ -22,7 +22,9 @@
     "demo": "Ver demo",
     "code": "Código",
     "stack": "Tecnologías",
-    "close": "Cerrar"
+    "close": "Cerrar",
+    "moreTitle": "Más proyectos en GitHub",
+    "moreText": "Repositorios, prácticas y lo que estoy construyendo ahora."
   },
   "resume": {
     "title": "Currículum",
@@ -33,7 +35,7 @@
   },
   "contact": {
     "title": "Hablemos",
-    "subtitle": "Cuéntame sobre tu proyecto o tu oferta. Respondo en menos de 24 horas.",
+    "subtitle": "Cuéntame sobre tu proyecto o tu oferta. Te respondo lo antes posible.",
     "name": "Nombre",
     "email": "Email",
     "type": "Tipo de consulta",

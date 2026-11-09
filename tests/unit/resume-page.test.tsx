@@ -11,11 +11,16 @@ test("descarga el PDF del idioma activo", () => {
   expect(link).toHaveAttribute("download");
 });
 
-test("secciones y una entrada por experiencia", () => {
+test("secciones; Experiencia solo si hay entradas", () => {
   renderWithIntl(<ResumeView />, "en");
-  expect(screen.getByRole("heading", { name: "Experience" })).toBeInTheDocument();
   expect(screen.getByRole("heading", { name: "Education" })).toBeInTheDocument();
   expect(screen.getByRole("heading", { name: "Skills" })).toBeInTheDocument();
-  const section = screen.getByRole("heading", { name: "Experience" }).closest("section")!;
-  expect(within(section).getAllByRole("article")).toHaveLength(resume.experience.length);
+  const exp = screen.queryByRole("heading", { name: "Experience" });
+  if (resume.experience.length === 0) {
+    expect(exp).toBeNull();
+  } else {
+    expect(within(exp!.closest("section")!).getAllByRole("article")).toHaveLength(resume.experience.length);
+  }
+  const edu = screen.getByRole("heading", { name: "Education" }).closest("section")!;
+  expect(within(edu).getAllByRole("article")).toHaveLength(resume.education.length);
 });

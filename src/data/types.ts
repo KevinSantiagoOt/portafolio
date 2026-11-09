@@ -43,7 +43,7 @@ export type Site = {
   github: string;
   available: boolean;
   photo: string;
-  stack: { name: string; icon: string }[];
+  stack: { name: string; icon: string; mono?: boolean }[];
   bio: Localized;
   services: Service[];
 };

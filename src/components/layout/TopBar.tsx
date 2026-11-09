@@ -17,9 +17,9 @@ export function TopBar() {
   return (
     <header className="flex items-center gap-4 px-3 pt-2 pb-4 text-[13px] md:grid md:grid-cols-[1fr_2fr_2fr_auto] md:px-4">
       {isHome ? (
-        <span className="font-medium">{site.name}</span>
+        <span className="font-medium whitespace-nowrap">{site.name}</span>
       ) : (
-        <Link href="/" className="font-medium transition-opacity hover:opacity-70">
+        <Link href="/" className="font-medium whitespace-nowrap transition-opacity hover:opacity-70">
           ← {t("home")}
         </Link>
       )}

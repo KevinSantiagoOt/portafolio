@@ -41,8 +41,8 @@ describe("integridad de datos", () => {
     }
   });
 
-  test("al menos 3 proyectos, slugs únicos e imágenes en /images/", () => {
-    expect(projects.length).toBeGreaterThanOrEqual(3);
+  test("al menos 1 proyecto, slugs únicos e imágenes en /images/", () => {
+    expect(projects.length).toBeGreaterThanOrEqual(1);
     expect(new Set(projects.map((p) => p.slug)).size).toBe(projects.length);
     for (const p of projects) expect(p.image.startsWith("/images/")).toBe(true);
   });

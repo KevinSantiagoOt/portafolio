@@ -46,6 +46,7 @@ export function ProjectModal({ project, onClose }: { project: Project | null; on
             </div>
             <p className="mt-3 max-w-[60ch] leading-relaxed text-fg-muted">{tl(project.description, locale)}</p>
 
+            {project.stack.length > 0 && (<>
             <h3 className="sr-only">{t("stack")}</h3>
             <ul className="mt-5 flex flex-wrap gap-2">
               {project.stack.map((s) => (
@@ -54,6 +55,7 @@ export function ProjectModal({ project, onClose }: { project: Project | null; on
                 </li>
               ))}
             </ul>
+            </>)}
 
             {(project.demoUrl || project.repoUrl) && (
               <div className="mt-6 flex flex-wrap gap-2">

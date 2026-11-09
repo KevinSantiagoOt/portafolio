@@ -35,7 +35,7 @@ export default async function OgImage({ params }: { params: Promise<{ locale: st
           <span>{t(site.role, loc)}</span>
           <span>{site.city}</span>
         </div>
-        <div style={{ fontSize: 200, fontWeight: 500, letterSpacing: -8, lineHeight: 1 }}>{site.name}</div>
+        <div style={{ fontSize: 140, fontWeight: 500, letterSpacing: -5, lineHeight: 1 }}>{site.name}</div>
       </div>
     ),
     size,

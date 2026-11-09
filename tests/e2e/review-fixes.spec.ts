@@ -22,7 +22,7 @@ test("un modal abierto al salir no reaparece al volver", async ({ page }) => {
   await gotoReady(page, "/es");
   await page.getByRole("link", { name: "Portafolio" }).click();
   await expect(page).toHaveURL(/\/es\/portfolio$/);
-  await page.getByRole("button", { name: /Travel Easy/ }).click();
+  await page.getByRole("button", { name: /Capitalia/ }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
 
   await page.goBack(); // gesto "atrás" del móvil con el modal abierto
@@ -85,12 +85,12 @@ test("los campos del formulario usan ≥16px (iOS no hace zoom)", async ({ page 
 
 test("el modal de proyecto no se vacía durante la animación de cierre", async ({ page }) => {
   await gotoReady(page, "/es/portfolio");
-  await page.getByRole("button", { name: /Travel Easy/ }).click();
-  await expect(page.getByRole("dialog")).toContainText("Travel Easy");
+  await page.getByRole("button", { name: /Capitalia/ }).click();
+  await expect(page.getByRole("dialog")).toContainText("Capitalia");
   const textDuringExit = await page.evaluate(async () => {
     (document.querySelector('[role="dialog"] button[aria-label="Cerrar"]') as HTMLButtonElement).click();
     await new Promise((r) => setTimeout(r, 60));
     return document.querySelector('[role="dialog"]')?.textContent ?? "(sin diálogo)";
   });
-  expect(textDuringExit).toContain("Travel Easy");
+  expect(textDuringExit).toContain("Capitalia");
 });

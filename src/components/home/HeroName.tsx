@@ -15,7 +15,7 @@ export function HeroName({ name }: { name: string }) {
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="text-center text-[clamp(4rem,12vw,10rem)] leading-[0.9] font-medium tracking-[-0.04em] whitespace-nowrap"
+        className="text-center text-[clamp(2.5rem,10.5vw,9rem)] leading-[0.9] font-medium tracking-[-0.04em] whitespace-nowrap"
       >
         {name}
       </motion.h1>

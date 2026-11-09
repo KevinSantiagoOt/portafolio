@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { bentoItem, cardClass } from "./BentoCard";
 
-type StackItem = { name: string; icon: string };
+type StackItem = { name: string; icon: string; mono?: boolean };
 
 /** Iconos de tecnologías en carrusel horizontal infinito (pausa en hover). */
 export function StackCard({ items, label }: { items: StackItem[]; label: string }) {
@@ -29,7 +29,7 @@ export function StackCard({ items, label }: { items: StackItem[]; label: string 
                 title={item.name}
                 className="grid size-12 shrink-0 place-items-center rounded-[14px] border border-border bg-card-hover md:size-[52px]"
               >
-                <Image src={item.icon} alt="" width={26} height={26} unoptimized />
+                <Image src={item.icon} alt="" width={26} height={26} unoptimized className={item.mono ? "dark:invert" : undefined} />
               </span>
             ))}
           </div>

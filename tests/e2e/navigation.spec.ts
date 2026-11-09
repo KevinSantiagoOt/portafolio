@@ -6,7 +6,7 @@ test.describe("idioma por defecto", () => {
   test("/ redirige a /es con navegador en español", async ({ page }) => {
     await gotoReady(page, "/");
     await expect(page).toHaveURL(/\/es$/);
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Kevin");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Kevin Otálvaro");
   });
 });
 

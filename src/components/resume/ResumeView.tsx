@@ -18,11 +18,13 @@ export function ResumeView() {
         <DownloadButton locale={locale} />
       </div>
 
-      <ResumeSection title={t("experience")}>
-        {resume.experience.map((e, i) => (
-          <ResumeItem key={i} entry={e} />
-        ))}
-      </ResumeSection>
+      {resume.experience.length > 0 && (
+        <ResumeSection title={t("experience")}>
+          {resume.experience.map((e, i) => (
+            <ResumeItem key={i} entry={e} />
+          ))}
+        </ResumeSection>
+      )}
 
       <ResumeSection title={t("education")}>
         {resume.education.map((e, i) => (
