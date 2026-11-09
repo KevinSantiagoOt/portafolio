@@ -20,9 +20,12 @@ test("en producción sin RESEND_API_KEY falla (el visitante ve tu email en vez d
   await expect(sendContact(input)).rejects.toThrow(/RESEND_API_KEY/);
 });
 
-const sendMock = vi.fn().mockResolvedValue({ error: null });
+const { sendMock } = vi.hoisted(() => ({ sendMock: vi.fn().mockResolvedValue({ error: null }) }));
 vi.mock("resend", () => ({
-  Resend: vi.fn().mockImplementation(() => ({ emails: { send: sendMock } })),
+  // function (no flecha): Resend se instancia con new.
+  Resend: vi.fn(function () {
+    return { emails: { send: sendMock } };
+  }),
 }));
 
 test("limpia espacios y saltos de línea de las variables pegadas en Vercel", async () => {
