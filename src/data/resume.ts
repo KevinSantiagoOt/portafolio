@@ -4,7 +4,7 @@ export const resume: Resume = {
   experience: [
     {
       title: { es: "Desarrollador de Software (Freelance)", en: "Software Developer (Freelance)" },
-      org: "Capitalia — App móvil de gestión de préstamos",
+      org: "Capitalia",
       period: { es: "2026", en: "2026" },
       bullets: [
         {

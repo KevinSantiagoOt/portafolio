@@ -1,13 +1,15 @@
-// Genera public/cv-es.pdf y public/cv-en.pdf imprimiendo la página /resume (tema claro).
+// Genera public/cv-<idioma>.pdf imprimiendo la página /resume (tema claro).
+// Por defecto solo el inglés: public/cv-es.pdf es tu CV diseñado en Canva y no se toca.
 // Uso: con el sitio corriendo (npm run build && npm run start), ejecuta:
-//   node scripts/make-cv-pdf.mjs [baseUrl]
+//   node scripts/make-cv-pdf.mjs [baseUrl] [idiomas...]   (ej.: ... http://localhost:3000 en es)
 // Si Chromium de Playwright no arranca en tu equipo, usa Edge: PW_CHANNEL=msedge node scripts/make-cv-pdf.mjs
 import { chromium } from "@playwright/test";
 
 const base = process.argv[2] ?? "http://localhost:3000";
+const locales = process.argv.length > 3 ? process.argv.slice(3) : ["en"];
 const browser = await chromium.launch({ channel: process.env.PW_CHANNEL || undefined });
 
-for (const locale of ["es", "en"]) {
+for (const locale of locales) {
   const ctx = await browser.newContext({ reducedMotion: "reduce" });
   await ctx.addInitScript(() => localStorage.setItem("theme", "light"));
   const page = await ctx.newPage();

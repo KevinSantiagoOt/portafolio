@@ -2,6 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { resume } from "@/data/resume";
+import { site } from "@/data/site";
 import type { Locale } from "@/data/types";
 import { t as tl } from "@/lib/localize";
 import { DownloadButton } from "./DownloadButton";
@@ -13,7 +14,19 @@ export function ResumeView() {
 
   return (
     <main className="px-3 pb-4 md:px-4">
-      <div className="flex flex-col gap-6 pt-8 pb-10 md:flex-row md:items-end md:justify-between md:pt-12 md:pb-14">
+      {/* Solo al imprimir / generar el PDF: nombre y contacto, que en la web ya están en la barra y el home. */}
+      <div className="hidden pb-6 print:block">
+        <p className="text-4xl font-medium tracking-tight">{site.name}</p>
+        <p className="mt-1 text-lg">{tl(site.role, locale)}</p>
+        <p className="mt-3 text-sm text-fg-muted">
+          {site.email} · +{site.whatsapp.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})$/, "$1 $2 $3 $4")} · {site.city}, Colombia
+        </p>
+        <p className="text-sm text-fg-muted">
+          {site.github.replace(/^https?:\/\//, "")} · {site.linkedin.replace(/^https?:\/\/(www\.)?/, "")}
+        </p>
+      </div>
+
+      <div className="flex flex-col gap-6 pt-8 pb-10 md:flex-row md:items-end md:justify-between md:pt-12 md:pb-14 print:hidden">
         <h1 className="text-[clamp(3.5rem,9vw,7rem)] leading-none font-medium tracking-[-0.04em]">{t("title")}</h1>
         <DownloadButton locale={locale} />
       </div>

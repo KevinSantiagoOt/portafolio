@@ -32,10 +32,10 @@ Todo el contenido está en `src/data/`. Los textos con dos idiomas tienen la for
 - **Foto:** pon tu foto en `public/images/` (por ejemplo `photo.jpg`) y actualiza `photo` en `site.ts`. Se muestra en escala de grises.
 - **Imágenes de proyectos:** en `public/images/`, idealmente en proporción 4:3 (1200×900).
 - **Iconos del stack:** SVG en `public/icons/` (los actuales son de [Devicon](https://devicon.dev), licencia MIT). Marca `mono: true` en `site.ts` si el logo es negro, para que se invierta en tema oscuro.
-- **CV en PDF:** reemplaza `public/cv-es.pdf` y `public/cv-en.pdf`, o genéralos desde la página `/resume`:
+- **CV en PDF:** `public/cv-es.pdf` es tu CV de Canva (reemplázalo cuando lo actualices). `public/cv-en.pdf` se genera desde la página `/en/resume`:
   ```bash
   npm run build && npm run start
-  node scripts/make-cv-pdf.mjs     # en otra terminal
+  node scripts/make-cv-pdf.mjs     # en otra terminal; solo regenera el inglés
   ```
 - Las pruebas (`npm test`) comprueban que no falte ninguna traducción.
 
