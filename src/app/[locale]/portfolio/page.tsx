@@ -3,6 +3,13 @@ import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { projects } from "@/data/projects";
 import { ProjectGrid } from "@/components/portfolio/ProjectGrid";
+import type { Locale } from "@/data/types";
+import { pageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return pageMetadata(locale as Locale, "portfolio");
+}
 
 export default function PortfolioPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = use(params);

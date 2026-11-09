@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 import { THEME_STORAGE_KEY, type Theme } from "@/components/providers/ThemeScript";
 
@@ -8,16 +8,20 @@ function readTheme(): Theme {
   return document.documentElement.dataset.theme === "light" ? "light" : "dark";
 }
 
+// El tema vive en <html data-theme>; lo observamos para que el botón esté siempre sincronizado.
+function subscribe(onChange: () => void) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  return () => observer.disconnect();
+}
+
 export function ThemeToggle() {
   const t = useTranslations("theme");
-  const [theme, setTheme] = useState<Theme>("dark");
-
-  useEffect(() => setTheme(readTheme()), []);
+  const theme = useSyncExternalStore(subscribe, readTheme, () => "dark" as Theme);
 
   function toggle() {
     const next: Theme = readTheme() === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
-    setTheme(next);
     try {
       localStorage.setItem(THEME_STORAGE_KEY, next);
     } catch {

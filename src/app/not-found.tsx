@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 // Fallback para rutas fuera de un idioma válido (ej. /fr).
 export default function GlobalNotFound() {
   return (
@@ -6,7 +8,7 @@ export default function GlobalNotFound() {
         <main style={{ textAlign: "center" }}>
           <p style={{ fontSize: "6rem", margin: 0 }}>404</p>
           <h1 style={{ fontSize: "1.25rem", fontWeight: 500 }}>Página no encontrada · Page not found</h1>
-          <a href="/" style={{ color: "inherit" }}>← Inicio · Home</a>
+          <Link href="/" style={{ color: "inherit" }}>← Inicio · Home</Link>
         </main>
       </body>
     </html>

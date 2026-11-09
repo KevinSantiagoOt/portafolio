@@ -8,6 +8,12 @@ import { Link } from "@/i18n/navigation";
 import { ScrollRevealText } from "@/components/about/ScrollRevealText";
 import { Services } from "@/components/about/Services";
 import { ArrowIcon } from "@/components/ui/ArrowIcon";
+import { pageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return pageMetadata(locale as Locale, "about");
+}
 
 export default function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = use(params);

@@ -49,3 +49,9 @@ export const site: Site = {
     },
   ],
 };
+
+/** URL pública del sitio (sin barra final). En Vercel: NEXT_PUBLIC_SITE_URL=https://tu-dominio.com */
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
+
+/** Rutas públicas (sin idioma) para sitemap y metadatos. */
+export const PAGES = ["", "/about", "/portfolio", "/resume"] as const;

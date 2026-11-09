@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import type { Metadata } from "next";
+import { site, SITE_URL } from "@/data/site";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -13,6 +15,11 @@ import { TopBar } from "@/components/layout/TopBar";
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: { default: site.name, template: `%s · ${site.name}` },
+};
 
 export default async function LocaleLayout({
   children,

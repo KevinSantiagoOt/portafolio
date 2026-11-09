@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portafolio
 
-## Getting Started
+Portafolio bilingüe (ES/EN) con estilo bento grid oscuro. Next.js 16, TypeScript, Tailwind CSS 4, Motion, next-intl y Resend.
 
-First, run the development server:
+## Empezar
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev          # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Script | Qué hace |
+|---|---|
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build && npm run start` | Build y servidor de producción |
+| `npm test` | Pruebas unitarias (Vitest) |
+| `npm run test:e2e` | Pruebas end-to-end (Playwright, escritorio + móvil) |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> Si el Chromium de Playwright no arranca en tu equipo, usa Edge: `PW_CHANNEL=msedge npm run test:e2e`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Poner tu contenido
 
-## Learn More
+Todo el contenido está en `src/data/`. Los textos con dos idiomas tienen la forma `{ es: "...", en: "..." }`.
 
-To learn more about Next.js, take a look at the following resources:
+| Archivo | Contenido |
+|---|---|
+| `src/data/site.ts` | Nombre, rol, ciudad, zona horaria, email, WhatsApp, LinkedIn, GitHub, disponibilidad, foto, stack, bio y servicios |
+| `src/data/projects.ts` | Proyectos (título, categoría, descripción, imagen, stack, demo, repo) |
+| `src/data/resume.ts` | Experiencia, educación y habilidades |
+| `src/messages/es.json`, `en.json` | Textos de la interfaz (botones, títulos, errores) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Foto:** pon tu foto en `public/images/` (por ejemplo `photo.jpg`) y actualiza `photo` en `site.ts`. Se muestra en escala de grises.
+- **Imágenes de proyectos:** en `public/images/`, idealmente en proporción 4:3 (1200×900).
+- **Iconos del stack:** SVG en `public/icons/`.
+- **CV en PDF:** reemplaza `public/cv-es.pdf` y `public/cv-en.pdf`, o genéralos desde la página `/resume`:
+  ```bash
+  npm run build && npm run start
+  node scripts/make-cv-pdf.mjs     # en otra terminal
+  ```
+- Las pruebas (`npm test`) comprueban que no falte ninguna traducción.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Las imágenes de ejemplo se generan con `node scripts/make-placeholders.mjs`; bórralas cuando pongas las tuyas.
 
-## Deploy on Vercel
+## Formulario de contacto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Copia `.env.example` a `.env.local` y rellénalo:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+RESEND_API_KEY=re_...
+CONTACT_TO_EMAIL=tu-correo@gmail.com
+CONTACT_FROM_EMAIL=Portafolio <hola@tu-dominio.com>
+NEXT_PUBLIC_SITE_URL=https://tu-dominio.com
+```
+
+Sin `RESEND_API_KEY` el formulario funciona igual, pero los mensajes solo se imprimen en la consola del servidor (útil en desarrollo).
+
+Para enviar desde tu propio dominio, verifícalo en [Resend](https://resend.com/domains). Mientras tanto puedes usar `onboarding@resend.dev` como remitente (solo envía a tu propio correo).
+
+Protección antispam: campo oculto (honeypot) y límite de 5 envíos cada 10 minutos por IP.
+
+## Publicar en Vercel
+
+1. Sube el repositorio a GitHub.
+2. En [vercel.com/new](https://vercel.com/new), importa el repositorio (detecta Next.js solo).
+3. En **Settings → Environment Variables**, añade `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` y `NEXT_PUBLIC_SITE_URL` (la URL final, por ejemplo `https://kevin.dev`).
+4. Despliega. Cada push a `main` vuelve a publicar.
+
+`NEXT_PUBLIC_SITE_URL` se usa en el sitemap, las URLs canónicas, el hreflang y la imagen para redes sociales, así que ponla antes del primer deploy.
+
+## Estructura
+
+```
+src/
+  app/[locale]/        páginas (home, about, portfolio, resume) + imagen Open Graph
+  app/api/contact/     envío del formulario
+  components/          layout, home, contact, about, portfolio, resume, ui
+  data/                tu contenido
+  i18n/                configuración de idiomas (next-intl)
+  lib/                 validación, rate limit, SEO, utilidades
+  messages/            textos de la interfaz
+tests/unit, tests/e2e
+docs/superpowers/      diseño y plan de implementación
+```
