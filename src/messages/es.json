@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "portfolio": "Portafolio",
+    "contact": "Contacto",
+    "resume": "CV",
+    "stack": "Tecnologías"
+  },
+  "home": {
+    "available": "Disponible para proyectos",
+    "photoAlt": "Retrato de {name}"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "servicesTitle": "Qué puedo hacer por ti",
+    "ctaTitle": "¿Trabajamos juntos?",
+    "ctaButton": "Hablemos"
+  },
+  "portfolio": {
+    "heading": "Algunos proyectos que representan el trabajo del que más orgulloso me siento",
+    "demo": "Ver demo",
+    "code": "Código",
+    "stack": "Tecnologías",
+    "close": "Cerrar"
+  },
+  "resume": {
+    "title": "Currículum",
+    "download": "Descargar PDF",
+    "experience": "Experiencia",
+    "education": "Educación",
+    "skills": "Habilidades"
+  },
+  "contact": {
+    "title": "Hablemos",
+    "subtitle": "Cuéntame sobre tu proyecto o tu oferta. Respondo en menos de 24 horas.",
+    "name": "Nombre",
+    "email": "Email",
+    "type": "Tipo de consulta",
+    "types": {
+      "job": "Empleo",
+      "freelance": "Proyecto freelance",
+      "other": "Otro"
+    },
+    "message": "Mensaje",
+    "submit": "Enviar mensaje",
+    "submitting": "Enviando…",
+    "success": "¡Gracias! Te respondo pronto.",
+    "directTitle": "O escríbeme directamente",
+    "copy": "Copiar email",
+    "copied": "Copiado",
+    "whatsappText": "¡Hola! Vi tu portafolio y me gustaría hablar contigo.",
+    "close": "Cerrar",
+    "errors": {
+      "nameRequired": "Escribe tu nombre (mínimo 2 caracteres).",
+      "nameTooLong": "El nombre es demasiado largo.",
+      "emailInvalid": "Escribe un email válido.",
+      "typeRequired": "Elige un tipo de consulta.",
+      "messageTooShort": "El mensaje debe tener al menos 10 caracteres.",
+      "messageTooLong": "El mensaje no puede superar los 2000 caracteres.",
+      "sendFailed": "No se pudo enviar el mensaje. Escríbeme directamente a",
+      "rateLimited": "Has enviado demasiados mensajes. Inténtalo de nuevo en unos minutos."
+    }
+  },
+  "theme": {
+    "toggle": "Cambiar tema claro u oscuro"
+  },
+  "locale": {
+    "label": "Idioma"
+  },
+  "meta": {
+    "homeTitle": "{name} — {role}",
+    "homeDescription": "Portafolio de {name}, {role}. Proyectos, experiencia y contacto para empleo y proyectos freelance.",
+    "aboutTitle": "Sobre mí",
+    "aboutDescription": "Quién soy, cómo trabajo y qué servicios ofrezco como desarrollador.",
+    "portfolioTitle": "Portafolio",
+    "portfolioDescription": "Una selección de proyectos web y móviles que he construido.",
+    "resumeTitle": "Currículum",
+    "resumeDescription": "Experiencia, educación y habilidades. Descarga mi CV en PDF."
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "back": "Volver al inicio"
+  }
+}

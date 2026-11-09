@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "resume": "Resume",
+    "stack": "Stack"
+  },
+  "home": {
+    "available": "Available for projects",
+    "photoAlt": "Portrait of {name}"
+  },
+  "about": {
+    "title": "About",
+    "servicesTitle": "What I can do for you",
+    "ctaTitle": "Shall we work together?",
+    "ctaButton": "Let's talk"
+  },
+  "portfolio": {
+    "heading": "A few projects that represent the work I'm most proud of",
+    "demo": "Live demo",
+    "code": "Code",
+    "stack": "Stack",
+    "close": "Close"
+  },
+  "resume": {
+    "title": "Resume",
+    "download": "Download PDF",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills"
+  },
+  "contact": {
+    "title": "Let's talk",
+    "subtitle": "Tell me about your project or role. I reply within 24 hours.",
+    "name": "Name",
+    "email": "Email",
+    "type": "Inquiry type",
+    "types": {
+      "job": "Job",
+      "freelance": "Freelance project",
+      "other": "Other"
+    },
+    "message": "Message",
+    "submit": "Send message",
+    "submitting": "Sending…",
+    "success": "Thanks! I'll get back to you soon.",
+    "directTitle": "Or reach me directly",
+    "copy": "Copy email",
+    "copied": "Copied",
+    "whatsappText": "Hi! I saw your portfolio and would like to talk.",
+    "close": "Close",
+    "errors": {
+      "nameRequired": "Enter your name (at least 2 characters).",
+      "nameTooLong": "That name is too long.",
+      "emailInvalid": "Enter a valid email.",
+      "typeRequired": "Choose an inquiry type.",
+      "messageTooShort": "Your message must be at least 10 characters.",
+      "messageTooLong": "Your message can't exceed 2000 characters.",
+      "sendFailed": "The message couldn't be sent. Email me directly at",
+      "rateLimited": "Too many messages sent. Please try again in a few minutes."
+    }
+  },
+  "theme": {
+    "toggle": "Toggle light or dark theme"
+  },
+  "locale": {
+    "label": "Language"
+  },
+  "meta": {
+    "homeTitle": "{name} — {role}",
+    "homeDescription": "Portfolio of {name}, {role}. Projects, experience and contact for jobs and freelance work.",
+    "aboutTitle": "About",
+    "aboutDescription": "Who I am, how I work and the services I offer as a developer.",
+    "portfolioTitle": "Portfolio",
+    "portfolioDescription": "A selection of web and mobile projects I've built.",
+    "resumeTitle": "Resume",
+    "resumeDescription": "Experience, education and skills. Download my resume as a PDF."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "back": "Back to home"
+  }
+}
