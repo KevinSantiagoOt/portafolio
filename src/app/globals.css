@@ -13,6 +13,7 @@
   --fg-faint: rgb(255 255 255 / 0.2);
   --glow: #ffffff;
   --glow-opacity: 0.16;
+  --danger: #f87171;
   --frame-shadow: 0 40px 120px -20px rgb(0 0 0 / 0.9), 0 0 0 1px rgb(255 255 255 / 0.06) inset;
   color-scheme: dark;
 }
@@ -30,6 +31,7 @@
   --fg-faint: rgb(0 0 0 / 0.22);
   --glow: #ffffff;
   --glow-opacity: 0.9;
+  --danger: #b91c1c;
   --frame-shadow: 0 40px 120px -30px rgb(0 0 0 / 0.25), 0 0 0 1px rgb(0 0 0 / 0.04) inset;
   color-scheme: light;
 }
@@ -44,6 +46,7 @@
   --color-fg: var(--fg);
   --color-fg-muted: var(--fg-muted);
   --color-fg-faint: var(--fg-faint);
+  --color-danger: var(--danger);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --animate-marquee: marquee 20s linear infinite;
 

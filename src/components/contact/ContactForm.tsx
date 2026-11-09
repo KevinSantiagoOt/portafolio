@@ -9,7 +9,7 @@ type Status = "idle" | "submitting" | "success" | "sendFailed" | "rateLimited";
 type Errors = Partial<Record<keyof ContactInput, ContactErrorKey>>;
 
 const inputClass =
-  "w-full rounded-2xl border border-border bg-card px-4 py-3 text-[15px] text-fg placeholder:text-fg-muted outline-none transition-colors focus:border-fg-faint aria-[invalid=true]:border-red-400/60";
+  "w-full rounded-2xl border border-border bg-card px-4 py-3 text-base text-fg placeholder:text-fg-muted outline-none transition-colors focus:border-fg-faint aria-[invalid=true]:border-danger/60";
 
 export function ContactForm() {
   const t = useTranslations("contact");
@@ -51,7 +51,7 @@ export function ContactForm() {
 
   const err = (field: keyof ContactInput) =>
     errors[field] ? (
-      <p id={`${id}-${field}-err`} className="mt-1.5 text-xs text-red-400">
+      <p id={`${id}-${field}-err`} className="mt-1.5 text-xs text-danger">
         {t(`errors.${errors[field]}`)}
       </p>
     ) : null;
@@ -124,7 +124,7 @@ export function ContactForm() {
       </div>
 
       {status === "sendFailed" && (
-        <p role="alert" className="text-sm text-red-400">
+        <p role="alert" className="text-sm text-danger">
           {t("errors.sendFailed")}{" "}
           <a href={`mailto:${site.email}`} className="underline">
             {site.email}
@@ -132,7 +132,7 @@ export function ContactForm() {
         </p>
       )}
       {status === "rateLimited" && (
-        <p role="alert" className="text-sm text-red-400">
+        <p role="alert" className="text-sm text-danger">
           {t("errors.rateLimited")}
         </p>
       )}

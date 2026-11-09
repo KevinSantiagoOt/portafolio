@@ -69,3 +69,17 @@ describe("POST /api/contact", () => {
     expect(await res.json()).toEqual({ ok: false, error: "rate_limited" });
   });
 });
+
+describe("POST /api/contact — tipo de contenido", () => {
+  test("rechaza cuerpos que no son application/json (POST simple entre sitios) → 415", async () => {
+    const res = await POST(
+      new Request("http://localhost/api/contact", {
+        method: "POST",
+        headers: { "content-type": "text/plain", "x-forwarded-for": "8.8.8.8" },
+        body: JSON.stringify(valid),
+      }),
+    );
+    expect(res.status).toBe(415);
+    expect(send).not.toHaveBeenCalled();
+  });
+});

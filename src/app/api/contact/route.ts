@@ -4,6 +4,11 @@ import { getClientKey } from "@/lib/rate-limit";
 import { sendContact } from "@/lib/send-contact";
 
 export async function POST(request: Request) {
+  // Exigir JSON obliga a un preflight CORS: otras webs no pueden enviar en nombre de sus visitantes.
+  if (!request.headers.get("content-type")?.toLowerCase().includes("application/json")) {
+    return Response.json({ ok: false, error: "unsupported_media_type" }, { status: 415 });
+  }
+
   let body: unknown;
   try {
     body = await request.json();

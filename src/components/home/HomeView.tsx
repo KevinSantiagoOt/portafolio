@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useLayoutEffect, useState, useSyncExternalStore } from "react";
 import { site } from "@/data/site";
 import { ContactPanel } from "@/components/contact/ContactPanel";
 import { HeroName } from "./HeroName";
@@ -24,6 +24,8 @@ export function HomeView() {
   const [openedByClick, setOpenedByClick] = useState(false);
   const openedByUrl = useSyncExternalStore(subscribeToUrl, contactInUrl, () => false);
   const contactOpen = openedByClick || openedByUrl;
+  // Con cacheComponents la ruta queda oculta (no desmontada) al navegar: cerrar el modal al ocultarse.
+  useLayoutEffect(() => () => setOpenedByClick(false), []);
 
   function closeContact() {
     setOpenedByClick(false);

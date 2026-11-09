@@ -1,14 +1,13 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { getPathname, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 
 export function LocaleSwitch() {
   const locale = useLocale();
   const t = useTranslations("locale");
   const pathname = usePathname();
-  const router = useRouter();
 
   return (
     <div role="group" aria-label={t("label")} className="flex items-center gap-0.5 text-xs">
@@ -20,7 +19,9 @@ export function LocaleSwitch() {
             type="button"
             lang={l}
             aria-current={active ? "true" : undefined}
-            onClick={() => !active && router.replace(pathname, { locale: l, scroll: false })}
+            // Navegación completa: <html> vive en el layout de [locale]; una navegación cliente lo
+            // remontaría reseteando data-theme y dejando lang desactualizado al volver.
+            onClick={() => !active && window.location.assign(getPathname({ href: pathname, locale: l }))}
             className={`rounded-full px-2 py-0.5 uppercase transition-colors focus-visible:outline-2 focus-visible:outline-fg ${
               active ? "bg-fg text-bg" : "text-fg-muted hover:text-fg"
             }`}
