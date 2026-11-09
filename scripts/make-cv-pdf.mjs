@@ -1,12 +1,16 @@
 // Genera public/cv-<idioma>.pdf imprimiendo la página /resume (tema claro).
-// Por defecto solo el inglés: public/cv-es.pdf es tu CV diseñado en Canva y no se toca.
+// Los CV publicados (cv-es.pdf, cv-en.pdf) son los de Canva: este script SOBRESCRIBE los idiomas que indiques.
 // Uso: con el sitio corriendo (npm run build && npm run start), ejecuta:
 //   node scripts/make-cv-pdf.mjs [baseUrl] [idiomas...]   (ej.: ... http://localhost:3000 en es)
 // Si Chromium de Playwright no arranca en tu equipo, usa Edge: PW_CHANNEL=msedge node scripts/make-cv-pdf.mjs
 import { chromium } from "@playwright/test";
 
 const base = process.argv[2] ?? "http://localhost:3000";
-const locales = process.argv.length > 3 ? process.argv.slice(3) : ["en"];
+const locales = process.argv.slice(3);
+if (locales.length === 0) {
+  console.log("Indica los idiomas a generar (sobrescribe public/cv-<idioma>.pdf), ej.: node scripts/make-cv-pdf.mjs http://localhost:3000 en");
+  process.exit(0);
+}
 const browser = await chromium.launch({ channel: process.env.PW_CHANNEL || undefined });
 
 for (const locale of locales) {
