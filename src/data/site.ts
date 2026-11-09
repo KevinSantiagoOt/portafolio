@@ -62,8 +62,26 @@ export const site: Site = {
   ],
 };
 
-/** URL pública del sitio (sin barra final). En Vercel: NEXT_PUBLIC_SITE_URL=https://tu-dominio.com */
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
+type UrlEnv = { NEXT_PUBLIC_SITE_URL?: string; VERCEL_PROJECT_PRODUCTION_URL?: string };
+
+/**
+ * URL pública del sitio, sin barra final. Orden:
+ * 1. NEXT_PUBLIC_SITE_URL (opcional, para un dominio propio).
+ * 2. VERCEL_PROJECT_PRODUCTION_URL: Vercel la pone sola con tu dominio de producción.
+ * 3. localhost en desarrollo.
+ */
+export function resolveSiteUrl(env: UrlEnv): string {
+  const explicit = env.NEXT_PUBLIC_SITE_URL?.trim();
+  const vercel = env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
+  const url = explicit || (vercel ? `https://${vercel}` : "http://localhost:3000");
+  return url.replace(/\/+$/, "");
+}
+
+// Solo se usa en servidor (metadatos, sitemap, robots, JSON-LD).
+export const SITE_URL = resolveSiteUrl({
+  NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
+  VERCEL_PROJECT_PRODUCTION_URL: process.env.VERCEL_PROJECT_PRODUCTION_URL,
+});
 
 /** Rutas públicas (sin idioma) para sitemap y metadatos. */
 export const PAGES = ["", "/about", "/portfolio", "/resume"] as const;

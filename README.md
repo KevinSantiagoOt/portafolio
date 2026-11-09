@@ -47,7 +47,7 @@ Copia `.env.example` a `.env.local` y rellénalo:
 RESEND_API_KEY=re_...
 CONTACT_TO_EMAIL=tu-correo@gmail.com
 CONTACT_FROM_EMAIL=Portafolio <hola@tu-dominio.com>
-NEXT_PUBLIC_SITE_URL=https://tu-dominio.com
+# Opcional (solo con dominio propio): NEXT_PUBLIC_SITE_URL=https://tu-dominio.com
 ```
 
 Sin `RESEND_API_KEY` el formulario funciona igual, pero los mensajes solo se imprimen en la consola del servidor (útil en desarrollo).
@@ -60,10 +60,10 @@ Protección antispam: campo oculto (honeypot) y límite de 5 envíos cada 10 min
 
 1. Sube el repositorio a GitHub.
 2. En [vercel.com/new](https://vercel.com/new), importa el repositorio (detecta Next.js solo).
-3. En **Settings → Environment Variables**, añade `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` y `NEXT_PUBLIC_SITE_URL` (la URL final, por ejemplo `https://kevin.dev`).
+3. En **Settings → Environment Variables**, añade `RESEND_API_KEY`, `CONTACT_TO_EMAIL` y `CONTACT_FROM_EMAIL`.
 4. Despliega. Cada push a `main` vuelve a publicar.
 
-`NEXT_PUBLIC_SITE_URL` se usa en el sitemap, las URLs canónicas, el hreflang y la imagen para redes sociales, así que ponla antes del primer deploy.
+La URL pública (sitemap, URLs canónicas, hreflang, imagen para redes) se toma sola del dominio de producción de Vercel. Solo si compras un dominio propio, define `NEXT_PUBLIC_SITE_URL` como variable tipo **Config** (no Secret) y sin saltos de línea.
 
 ## Estructura
 
