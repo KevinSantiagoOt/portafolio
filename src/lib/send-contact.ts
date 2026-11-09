@@ -7,9 +7,12 @@ const TYPE_LABEL: Record<ContactInput["type"], string> = {
   other: "Otro",
 };
 
+/** Variable de entorno sin espacios ni saltos de línea (frecuentes al pegar en Vercel). */
+const env = (name: string) => process.env[name]?.trim() || undefined;
+
 /** Envía el mensaje por Resend. Sin RESEND_API_KEY: en desarrollo solo lo registra; en producción lanza. Lanza si Resend falla. */
 export async function sendContact(input: Omit<ContactInput, "website">): Promise<void> {
-  const apiKey = process.env.RESEND_API_KEY;
+  const apiKey = env("RESEND_API_KEY");
   const subject = `[Portafolio] ${TYPE_LABEL[input.type]} — ${input.name}`;
   const text = `Nombre: ${input.name}\nEmail: ${input.email}\nTipo: ${TYPE_LABEL[input.type]}\n\n${input.message}`;
 
@@ -20,8 +23,8 @@ export async function sendContact(input: Omit<ContactInput, "website">): Promise
     return;
   }
 
-  const to = process.env.CONTACT_TO_EMAIL;
-  const from = process.env.CONTACT_FROM_EMAIL;
+  const to = env("CONTACT_TO_EMAIL");
+  const from = env("CONTACT_FROM_EMAIL");
   if (!to || !from) throw new Error("CONTACT_TO_EMAIL y CONTACT_FROM_EMAIL son obligatorias");
 
   const { error } = await new Resend(apiKey).emails.send({ from, to, replyTo: input.email, subject, text });
