@@ -19,7 +19,8 @@ export const resume: Resume = {
   ],
   skills: [
     { group: { es: "Lenguajes", en: "Languages" }, items: ["Java", "C#", "TypeScript"] },
-    { group: { es: "Frontend", en: "Frontend" }, items: ["React", "Tailwind CSS 4"] },
+    { group: { es: "Frontend y móvil", en: "Frontend & mobile" }, items: ["React", "React Native", "Expo", "Tailwind CSS 4"] },
+    { group: { es: "Backend", en: "Backend" }, items: ["Node.js", "Express", "REST APIs", "JWT"] },
     { group: { es: "Datos", en: "Data" }, items: ["Prisma", "MySQL", "PostgreSQL", "MySQL Workbench"] },
     {
       group: { es: "Herramientas", en: "Tools" },

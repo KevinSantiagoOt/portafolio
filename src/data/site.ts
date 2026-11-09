@@ -7,7 +7,7 @@ export const site: Site = {
   timeZone: "America/Bogota",
   email: "kevinotalvaro@outlook.es",
   whatsapp: "573137226702",
-  linkedin: "https://www.linkedin.com/in/kevin-santiago-ot%C3%A1lvaro-8784b7328",
+  linkedin: "https://www.linkedin.com/in/kevinotalvaro",
   github: "https://github.com/KevinSantiagoOt",
   available: true,
   // Pendiente: reemplazar por tu foto real (public/images/photo.jpg).
