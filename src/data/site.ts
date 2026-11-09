@@ -24,9 +24,18 @@ export const site: Site = {
     { name: "Git", icon: "/icons/git.svg" },
     { name: "GitHub", icon: "/icons/github.svg", mono: true },
   ],
+  // Párrafos separados por una línea en blanco ("\n\n").
   bio: {
-    es: "Soy Kevin Otálvaro, desarrollador de software en Medellín, Colombia. Me apasiona crear soluciones digitales completas: desde la lógica del backend y las bases de datos hasta interfaces intuitivas en el frontend. Desarrollo páginas web, aplicaciones móviles y de escritorio con Java, C#, TypeScript y React, buscando que cada producto sea claro, confiable y fácil de usar.",
-    en: "I'm Kevin Otálvaro, a software developer based in Medellín, Colombia. I'm passionate about building complete digital solutions: from backend logic and databases to intuitive frontend interfaces. I build websites, mobile and desktop applications with Java, C#, TypeScript and React, aiming for every product to be clear, reliable and easy to use.",
+    es: [
+      "Soy Kevin Otálvaro, desarrollador de software en Medellín, Colombia.",
+      "Me apasiona crear soluciones digitales, desde la lógica del backend y las bases de datos hasta interfaces intuitivas en el frontend.",
+      "Desarrollo páginas web, aplicaciones móviles y de escritorio con Java, C#, TypeScript y React, buscando que cada producto sea claro, confiable y fácil de usar.",
+    ].join("\n\n"),
+    en: [
+      "I'm Kevin Otálvaro, a software developer based in Medellín, Colombia.",
+      "I'm passionate about building digital solutions, from backend logic and databases to intuitive frontend interfaces.",
+      "I build websites, mobile and desktop applications with Java, C#, TypeScript and React, aiming for every product to be clear, reliable and easy to use.",
+    ].join("\n\n"),
   },
   services: [
     {
