@@ -14,7 +14,7 @@ export function PhotoCard({ src, alt }: { src: string; alt: string }) {
           fill
           sizes="(min-width: 768px) 25vw, 50vw"
           // Encuadre hacia arriba: la cara queda visible en tarjetas anchas o bajas.
-          className="object-cover object-top grayscale"
+          className="object-cover object-[50%_30%] grayscale"
           unoptimized={src.endsWith(".svg")}
           priority
         />
