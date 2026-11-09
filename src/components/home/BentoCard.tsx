@@ -13,7 +13,7 @@ export const bentoItem: Variants = {
 
 /** Estilo base compartido por todas las tarjetas. */
 export const cardClass =
-  "relative flex h-full w-full overflow-hidden rounded-[22px] border border-border bg-card-glass backdrop-blur-xl transition-colors duration-300";
+  "relative flex h-full w-full overflow-hidden rounded-[22px] border border-border bg-card-glass backdrop-blur-[8px] transition-colors duration-300";
 
 // Los hijos definen también hidden/show para volver a su sitio al salir del hover.
 const arrowVariants: Variants = {

@@ -5,14 +5,16 @@
     "portfolio": "Portafolio",
     "contact": "Contacto",
     "resume": "CV",
-    "stack": "Tecnologías"
+    "stack": "Tecnologías",
+    "welcome": "Bienvenido a mi portafolio"
   },
   "home": {
     "available": "Disponible para proyectos",
     "photoAlt": "Retrato de {name}",
     "aboutTeaser": "Del backend al frontend: web, móvil y escritorio.",
     "resumeTeaser": "Estudios, habilidades y CV en PDF",
-    "contactCta": "Hablemos"
+    "contactCta": "Hablemos",
+    "portfolioTeaser": "Capitalia y más proyectos"
   },
   "about": {
     "title": "Sobre mí",

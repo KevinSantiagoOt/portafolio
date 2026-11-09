@@ -31,22 +31,21 @@ export function BentoGrid({ onContactClick }: { onContactClick: () => void }) {
         <p className="max-w-[24ch] p-5 text-lg leading-snug text-fg-muted md:text-xl">{t("home.aboutTeaser")}</p>
       </BentoCard>
 
-      <BentoCard title={t("nav.portfolio")} href="/portfolio" onImage className="col-span-2 h-[200px] md:col-span-8 md:h-auto">
+      <BentoCard title={t("nav.portfolio")} href="/portfolio" className="col-span-2 h-[150px] md:col-span-8 md:h-auto">
+        {/* Solo un adelanto: imagen tenue y difuminada a la derecha que se revela al pasar el ratón. */}
         {featured && (
-          <>
+          <div className="absolute inset-y-0 right-0 w-[70%] [mask-image:linear-gradient(to_right,transparent,black_45%)] md:w-[60%]">
             <Image
               src={featured.image}
               alt=""
               fill
-              sizes="(min-width: 768px) 66vw, 100vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              sizes="(min-width: 768px) 40vw, 70vw"
+              className="object-cover opacity-30 blur-[3px] grayscale transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:opacity-80 group-hover:blur-0 group-hover:grayscale-0"
               unoptimized={featured.image.endsWith(".svg")}
-              priority
             />
-            {/* Degradado para que el título se lea sobre la imagen en ambos temas. */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
-          </>
+          </div>
         )}
+        <p className="relative max-w-[22ch] p-5 text-lg leading-snug text-fg-muted md:text-xl">{t("home.portfolioTeaser")}</p>
       </BentoCard>
 
       <BentoCard title={t("nav.contact")} onClick={onContactClick} className="col-span-1 h-[170px] md:col-span-6 md:h-auto">

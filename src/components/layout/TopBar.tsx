@@ -18,7 +18,7 @@ export function TopBar() {
     // Móvil: [nombre | controles] y el rol centrado debajo. Escritorio: nombre | rol centrado | hora + controles.
     <header className="grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-3 px-3 pt-2 pb-4 text-[13px] md:grid-cols-[1fr_auto_1fr] md:px-4">
       {isHome ? (
-        <span className="font-medium whitespace-nowrap">{site.name}</span>
+        <span className="font-medium whitespace-nowrap">{t("welcome")}</span>
       ) : (
         <Link href="/" className="justify-self-start font-medium whitespace-nowrap transition-opacity hover:opacity-70">
           ← {t("home")}

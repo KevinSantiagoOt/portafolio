@@ -43,7 +43,7 @@ export function HomeView() {
         <HeroName name={site.name} />
       </div>
       {/* El grid se monta sobre la parte baja del nombre: las tarjetas con blur lo desenfocan. */}
-      <div className="-mt-[clamp(0.9rem,3.8vw,3.2rem)]">
+      <div className="-mt-[clamp(0.7rem,2.9vw,2.5rem)]">
         <BentoGrid onContactClick={() => setOpenedByClick(true)} />
       </div>
       <ContactPanel open={contactOpen} onClose={closeContact} />

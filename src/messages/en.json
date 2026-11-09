@@ -5,14 +5,16 @@
     "portfolio": "Portfolio",
     "contact": "Contact",
     "resume": "Resume",
-    "stack": "Stack"
+    "stack": "Stack",
+    "welcome": "Welcome to my portfolio"
   },
   "home": {
     "available": "Available for projects",
     "photoAlt": "Portrait of {name}",
     "aboutTeaser": "From backend to frontend: web, mobile and desktop.",
     "resumeTeaser": "Education, skills and PDF resume",
-    "contactCta": "Let’s talk"
+    "contactCta": "Let’s talk",
+    "portfolioTeaser": "Capitalia and more"
   },
   "about": {
     "title": "About",
