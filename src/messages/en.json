@@ -9,7 +9,10 @@
   },
   "home": {
     "available": "Available for projects",
-    "photoAlt": "Portrait of {name}"
+    "photoAlt": "Portrait of {name}",
+    "aboutTeaser": "From backend to frontend: web, mobile and desktop.",
+    "resumeTeaser": "Education, skills and PDF resume",
+    "contactCta": "Let’s talk"
   },
   "about": {
     "title": "About",
@@ -24,7 +27,8 @@
     "stack": "Stack",
     "close": "Close",
     "moreTitle": "More projects on GitHub",
-    "moreText": "Repositories, practice projects and what I am building now."
+    "moreText": "Repositories, practice projects and what I am building now.",
+    "screenshot": "screenshot"
   },
   "resume": {
     "title": "Resume",

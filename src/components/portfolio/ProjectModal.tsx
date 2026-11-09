@@ -44,7 +44,20 @@ export function ProjectModal({ project, onClose }: { project: Project | null; on
               </h2>
               <span className="text-sm text-fg-muted">{tl(project.category, locale)}</span>
             </div>
+            {project.status && (
+              <span className="mt-3 inline-block rounded-full border border-border px-3 py-1 text-xs">{tl(project.status, locale)}</span>
+            )}
             <p className="mt-3 max-w-[60ch] leading-relaxed text-fg-muted">{tl(project.description, locale)}</p>
+
+            {project.gallery && project.gallery.length > 0 && (
+              <ul className="-mx-2 mt-5 flex snap-x gap-3 overflow-x-auto px-2 pb-2 md:-mx-4 md:px-4">
+                {project.gallery.map((src, i) => (
+                  <li key={src} className="relative h-[360px] w-[180px] shrink-0 snap-start overflow-hidden rounded-[18px] border border-border bg-card-hover md:h-[420px] md:w-[210px]">
+                    <Image src={src} alt={`${project.title} — ${t("screenshot")} ${i + 1}`} fill sizes="210px" className="object-cover" />
+                  </li>
+                ))}
+              </ul>
+            )}
 
             {project.stack.length > 0 && (<>
             <h3 className="sr-only">{t("stack")}</h3>

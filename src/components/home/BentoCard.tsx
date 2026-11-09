@@ -36,19 +36,21 @@ type BentoCardProps = {
   children?: ReactNode;
   /** Por defecto, true si la tarjeta es interactiva. */
   showArrow?: boolean;
+  /** El contenido es una imagen: título y flecha en blanco. */
+  onImage?: boolean;
 };
 
-export function BentoCard({ title, href, onClick, className = "", children, showArrow }: BentoCardProps) {
+export function BentoCard({ title, href, onClick, className = "", children, showArrow, onImage }: BentoCardProps) {
   const interactive = Boolean(href || onClick);
   const arrow = showArrow ?? interactive;
 
   const inner = (
     <>
       {children && <div className="absolute inset-0">{children}</div>}
-      <div className="relative mt-auto flex w-full items-end justify-between p-5 text-[15px]">
+      <div className={`relative mt-auto flex w-full items-end justify-between p-5 text-[15px] ${onImage ? "text-white" : ""}`}>
         <span>{title}</span>
         {arrow && (
-          <motion.span data-testid="bento-arrow" variants={arrowVariants} className="text-fg-muted group-hover:text-fg">
+          <motion.span data-testid="bento-arrow" variants={arrowVariants} className={onImage ? "text-white/80 group-hover:text-white" : "text-fg-muted group-hover:text-fg"}>
             <ArrowIcon />
           </motion.span>
         )}
@@ -66,7 +68,8 @@ export function BentoCard({ title, href, onClick, className = "", children, show
     <motion.div
       variants={bentoItem}
       whileHover={interactive ? "hover" : undefined}
-      className={`h-full ${className}`}
+      // La altura la define className (p. ej. h-[150px] md:h-auto); por defecto llena su celda.
+      className={/(^|\s)h-/.test(className) ? className : `h-full ${className}`}
     >
       <motion.div variants={liftVariants} className="h-full">
         {href ? (

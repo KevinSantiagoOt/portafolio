@@ -9,7 +9,10 @@
   },
   "home": {
     "available": "Disponible para proyectos",
-    "photoAlt": "Retrato de {name}"
+    "photoAlt": "Retrato de {name}",
+    "aboutTeaser": "Del backend al frontend: web, móvil y escritorio.",
+    "resumeTeaser": "Estudios, habilidades y CV en PDF",
+    "contactCta": "Hablemos"
   },
   "about": {
     "title": "Sobre mí",
@@ -24,7 +27,8 @@
     "stack": "Tecnologías",
     "close": "Cerrar",
     "moreTitle": "Más proyectos en GitHub",
-    "moreText": "Repositorios, prácticas y lo que estoy construyendo ahora."
+    "moreText": "Repositorios, prácticas y lo que estoy construyendo ahora.",
+    "screenshot": "captura"
   },
   "resume": {
     "title": "Currículum",

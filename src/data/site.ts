@@ -14,7 +14,7 @@ export const site: Site = {
   photo: "/images/photo.svg",
   // Iconos: Devicon (MIT). `mono`: logo oscuro que se invierte en tema oscuro.
   stack: [
-    { name: "Java", icon: "/icons/java.svg" },
+    { name: "Java", icon: "/icons/java.svg", lift: true },
     { name: "C#", icon: "/icons/csharp.svg" },
     { name: "TypeScript", icon: "/icons/typescript.svg" },
     { name: "React", icon: "/icons/react.svg" },

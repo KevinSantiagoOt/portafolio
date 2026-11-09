@@ -54,3 +54,18 @@ test("sin demoUrl no hay botón de demo", async () => {
   expect(within(dialog).queryByRole("link", { name: /Ver demo/ })).toBeNull();
   expect(within(dialog).getByRole("link", { name: /Código/ })).toBeInTheDocument();
 });
+
+test("muestra la etiqueta de estado y la galería de capturas", async () => {
+  const user = userEvent.setup();
+  const withGallery: Project = {
+    ...projects[0],
+    status: { es: "Beta privada · Android", en: "Private beta · Android" },
+    gallery: ["/images/s1.png", "/images/s2.png"],
+  };
+  renderWithIntl(<ProjectGrid projects={[withGallery]} />, "en");
+  expect(screen.getByRole("button", { name: /Alpha/ })).toHaveTextContent("Private beta · Android");
+  await user.click(screen.getByRole("button", { name: /Alpha/ }));
+  const dialog = screen.getByRole("dialog");
+  expect(within(dialog).getByText("Private beta · Android")).toBeInTheDocument();
+  expect(within(dialog).getAllByRole("img", { name: /Alpha — screenshot/ })).toHaveLength(2);
+});

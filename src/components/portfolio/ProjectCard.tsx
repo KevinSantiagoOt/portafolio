@@ -29,6 +29,11 @@ export function ProjectCard({ project, onOpen }: { project: Project; onOpen: () 
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             unoptimized={project.image.endsWith(".svg")}
           />
+          {project.status && (
+            <span className="absolute top-3 left-3 rounded-full bg-black/60 px-3 py-1 text-xs text-white backdrop-blur-md">
+              {t(project.status, locale)}
+            </span>
+          )}
         </div>
         <div className="flex items-baseline justify-between gap-4 px-3 pt-4 pb-2">
           <span className="line-clamp-1 text-lg">{project.title}</span>

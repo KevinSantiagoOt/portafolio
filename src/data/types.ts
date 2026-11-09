@@ -13,6 +13,10 @@ export type Project = {
   demoUrl?: string;
   repoUrl?: string;
   featured?: boolean;
+  /** Etiqueta corta, ej. "Beta privada · Android". */
+  status?: Localized;
+  /** Capturas de pantalla (rutas en /public/images), se muestran en el detalle. */
+  gallery?: string[];
 };
 
 export type ResumeEntry = {
@@ -43,7 +47,7 @@ export type Site = {
   github: string;
   available: boolean;
   photo: string;
-  stack: { name: string; icon: string; mono?: boolean }[];
+  stack: { name: string; icon: string; mono?: boolean; lift?: boolean }[];
   bio: Localized;
   services: Service[];
 };
