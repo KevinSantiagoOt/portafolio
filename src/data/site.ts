@@ -10,7 +10,7 @@ export const site: Site = {
   linkedin: "https://www.linkedin.com/in/kevinotalvaro",
   github: "https://github.com/KevinSantiagoOt",
   available: true,
-  photo: "/images/photo.webp",
+  photo: "/images/kevin.webp",
   // Iconos: Devicon (MIT). `mono`: logo oscuro que se invierte en tema oscuro.
   stack: [
     { name: "Java", icon: "/icons/java.svg", lift: true },

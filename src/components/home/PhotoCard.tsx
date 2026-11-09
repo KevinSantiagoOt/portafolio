@@ -13,7 +13,8 @@ export function PhotoCard({ src, alt }: { src: string; alt: string }) {
           alt={alt}
           fill
           sizes="(min-width: 768px) 25vw, 50vw"
-          className="object-cover grayscale"
+          // Encuadre hacia arriba: la cara queda visible en tarjetas anchas o bajas.
+          className="object-cover object-top grayscale"
           unoptimized={src.endsWith(".svg")}
           priority
         />
