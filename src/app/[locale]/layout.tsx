@@ -4,6 +4,11 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { GeistSans } from "geist/font/sans";
 import { routing } from "@/i18n/routing";
+import { ThemeScript } from "@/components/providers/ThemeScript";
+import { MotionProvider } from "@/components/providers/MotionProvider";
+import { Background } from "@/components/layout/Background";
+import { Frame } from "@/components/layout/Frame";
+import { TopBar } from "@/components/layout/TopBar";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -21,9 +26,20 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} className={GeistSans.variable} suppressHydrationWarning>
+    <html lang={locale} data-theme="dark" className={GeistSans.variable} suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
       <body>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <MotionProvider>
+            <Background />
+            <Frame>
+              <TopBar />
+              {children}
+            </Frame>
+          </MotionProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
