@@ -23,7 +23,7 @@ export function TopBar() {
           ← {t("home")}
         </Link>
       )}
-      <span className="text-fg-muted md:text-fg">{tl(site.role, locale)}</span>
+      <span className="min-w-0 truncate text-fg-muted md:text-fg">{tl(site.role, locale)}</span>
       <span className="hidden justify-self-end md:block">
         <LiveClock />
       </span>
