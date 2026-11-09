@@ -15,19 +15,22 @@ export function TopBar() {
   const isHome = usePathname() === "/";
 
   return (
-    <header className="flex items-center gap-4 px-3 pt-2 pb-4 text-[13px] md:grid md:grid-cols-[1fr_2fr_2fr_auto] md:px-4">
+    // Móvil: [nombre | controles] y el rol centrado debajo. Escritorio: nombre | rol centrado | hora + controles.
+    <header className="grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-3 px-3 pt-2 pb-4 text-[13px] md:grid-cols-[1fr_auto_1fr] md:px-4">
       {isHome ? (
         <span className="font-medium whitespace-nowrap">{site.name}</span>
       ) : (
-        <Link href="/" className="font-medium whitespace-nowrap transition-opacity hover:opacity-70">
+        <Link href="/" className="justify-self-start font-medium whitespace-nowrap transition-opacity hover:opacity-70">
           ← {t("home")}
         </Link>
       )}
-      <span className="min-w-0 truncate text-fg-muted md:text-fg">{tl(site.role, locale)}</span>
-      <span className="hidden justify-self-end md:block">
-        <LiveClock />
-      </span>
-      <div className="ml-auto flex items-center gap-3 md:ml-0">
+      <p className="col-span-2 row-start-2 text-center text-base font-medium tracking-tight md:col-span-1 md:col-start-2 md:row-start-1 md:text-lg">
+        {tl(site.role, locale)}
+      </p>
+      <div className="flex items-center justify-self-end gap-3 md:gap-4">
+        <span className="hidden md:inline">
+          <LiveClock />
+        </span>
         <LocaleSwitch />
         <ThemeToggle />
       </div>
