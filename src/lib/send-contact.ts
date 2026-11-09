@@ -1,0 +1,27 @@
+import { Resend } from "resend";
+import type { ContactInput } from "./contact-schema";
+
+const TYPE_LABEL: Record<ContactInput["type"], string> = {
+  job: "Empleo",
+  freelance: "Freelance",
+  other: "Otro",
+};
+
+/** Envía el mensaje por Resend. Sin RESEND_API_KEY (desarrollo) solo lo registra. Lanza si Resend falla. */
+export async function sendContact(input: Omit<ContactInput, "website">): Promise<void> {
+  const apiKey = process.env.RESEND_API_KEY;
+  const subject = `[Portafolio] ${TYPE_LABEL[input.type]} — ${input.name}`;
+  const text = `Nombre: ${input.name}\nEmail: ${input.email}\nTipo: ${TYPE_LABEL[input.type]}\n\n${input.message}`;
+
+  if (!apiKey) {
+    console.info(`[contact] RESEND_API_KEY no configurada; mensaje no enviado:\n${subject}\n${text}`);
+    return;
+  }
+
+  const to = process.env.CONTACT_TO_EMAIL;
+  const from = process.env.CONTACT_FROM_EMAIL;
+  if (!to || !from) throw new Error("CONTACT_TO_EMAIL y CONTACT_FROM_EMAIL son obligatorias");
+
+  const { error } = await new Resend(apiKey).emails.send({ from, to, replyTo: input.email, subject, text });
+  if (error) throw new Error(`Resend: ${error.message}`);
+}
