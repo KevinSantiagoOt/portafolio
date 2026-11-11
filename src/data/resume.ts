@@ -22,7 +22,7 @@ export const resume: Resume = {
       ],
     },
     {
-      title: { es: "Practicante TI", en: "IT Intern" },
+      title: { es: "TI", en: "IT" },
       org: "Rentan",
       period: { es: "2026", en: "2026" },
       location: "Medellín",
