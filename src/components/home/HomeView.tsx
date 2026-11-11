@@ -42,8 +42,9 @@ export function HomeView() {
       <div className="pt-6 md:pt-8">
         <HeroName name={site.name} />
       </div>
-      {/* El grid se monta sobre la parte baja del nombre: las tarjetas con blur lo desenfocan. */}
-      <div className="-mt-[clamp(0.7rem,2.9vw,2.5rem)]">
+      {/* Desde md el grid se monta sobre la parte baja del nombre (las tarjetas con blur lo desenfocan).
+          En móvil el nombre es pequeño y el solapamiento lo hacía parecer cortado: ahí va debajo. */}
+      <div className="mt-4 md:-mt-[clamp(0.7rem,2.9vw,2.5rem)]">
         <BentoGrid onContactClick={() => setOpenedByClick(true)} />
       </div>
       <ContactPanel open={contactOpen} onClose={closeContact} />
