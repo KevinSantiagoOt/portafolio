@@ -50,9 +50,9 @@ export const resume: Resume = {
       bullets: [],
     },
     {
-      title: { es: "Tecnólogo en Desarrollo de Software", en: "Software Development Technologist" },
+      title: { es: "Estudiante de Desarrollo de Software ITM", en: "Software Development Student at ITM" },
       org: "ITM — Instituto Tecnológico Metropolitano",
-      period: { es: "Graduado", en: "Graduated" },
+      period: { es: "En curso", en: "In progress" },
       bullets: [],
     },
   ],
